@@ -2,8 +2,8 @@ export const SITE = {
   name: "Fix My Old Backyard",
   phone: "1-800-381-5900",
   phoneHref: "tel:+18003815900",
-  email: "info@fixmyoldpool.com",
-  emailHref: "mailto:info@fixmyoldpool.com",
+  email: "billd@inetzter.com",
+  emailHref: "mailto:billd@inetzter.com",
   tagline: "Fix Your Old Backyard. Create Something Amazing.",
 };
 
