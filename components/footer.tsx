@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE, NAV_LINKS } from "@/lib/site-data";
+import { SITE, NAV_LINKS, BOOK } from "@/lib/site-data";
 
 export default function Footer() {
   return (
@@ -8,8 +8,12 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-bold">Fix My Old Backyard</h3>
           <p className="mt-2 text-sm text-muted-foreground">
-            Real projects, real materials guidance, and real installation know-how — from
-            the team behind the book <em>BBQing with Billy</em>.
+            Free, practical education for homeowners remodeling a backyard: real projects,
+            materials guidance and installation know-how, from the team behind the book{" "}
+            <a href={BOOK.url} className="underline hover:text-emerald-600">
+              <em>Backyard Design and BBQing with Billy</em>
+            </a>
+            .
           </p>
         </div>
         <div>
@@ -28,7 +32,7 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            Get a Free Quote
+            Questions or a Project in SoCal?
           </h4>
           <p className="mt-3 text-sm">
             <a href={SITE.phoneHref} className="font-semibold hover:text-emerald-600">

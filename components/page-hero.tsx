@@ -1,4 +1,5 @@
-import { SITE } from "@/lib/site-data";
+import Link from "next/link";
+import { BOOK } from "@/lib/site-data";
 
 export function PageHero({
   eyebrow,
@@ -29,18 +30,24 @@ export function PageHero({
             </div>
           ))}
         </div>
-        <div className="mt-8 flex gap-4">
-          <a
-            href={SITE.phoneHref}
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link
+            href="/guides"
             className="rounded-md bg-emerald-600 px-6 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
           >
-            Call {SITE.phone}
-          </a>
-          <a
-            href={SITE.emailHref}
+            Get the Guide
+          </Link>
+          <Link
+            href="/3d-design"
             className="rounded-md border border-border px-6 py-3 text-sm font-semibold hover:bg-muted"
           >
-            Email {SITE.email}
+            3-D Design — $125
+          </Link>
+          <a
+            href={BOOK.url}
+            className="rounded-md border border-border px-6 py-3 text-sm font-semibold hover:bg-muted"
+          >
+            Get the Book
           </a>
         </div>
       </div>

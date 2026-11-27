@@ -4,9 +4,9 @@ import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Fix My Old Backyard | Driveways, Decks, Patio Covers, BBQ Islands & Pools",
+  title: "Fix My Old Backyard | Learn Before You Build: Backyard Remodeling Guides",
   description:
-    "Real backyard transformation projects and educational guides on materials, installation, and design — from the team behind BBQing with Billy.",
+    "Free articles, practical PDF guides and real projects on outdoor kitchens, patio covers, pools, decks and driveways: costs, materials and mistakes to avoid. From the team behind BBQing with Billy.",
 };
 
 export default function RootLayout({

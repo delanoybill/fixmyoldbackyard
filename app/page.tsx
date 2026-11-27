@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { SITE } from "@/lib/site-data";
+import { SITE, GUIDES } from "@/lib/site-data";
+import { BookPromo } from "@/components/book-promo";
+import { GuideCard } from "@/components/guide-card";
+import { BLOG_POSTS } from "@/lib/blog-data";
 
 const CATEGORIES = [
   {
@@ -48,44 +51,44 @@ export default function Home() {
             {SITE.tagline}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            An educational resource — built alongside the book <em>BBQing with Billy</em> —
-            to help you choose the right materials, understand proper installation, and get
-            real project ideas for driveways, decks, patio covers, BBQ islands, and pool
-            remodels.
+            Free articles, short guides and real project photos from a builder with 1,500+
+            backyards behind him. Learn what things really cost, which materials hold up, and
+            the mistakes to avoid before you hire anyone. The companion site to the book{" "}
+            <em>Backyard Design and BBQing with Billy</em>.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/driveways"
+              href="/blog"
               className="rounded-md bg-emerald-600 px-6 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
             >
-              See Real Projects
+              Start Learning
             </Link>
-            <a
-              href={SITE.phoneHref}
+            <Link
+              href="/guides"
               className="rounded-md border border-border px-6 py-3 text-sm font-semibold hover:bg-muted"
             >
-              Get a Free Quote — {SITE.phone}
-            </a>
+              Browse the Guides
+            </Link>
           </div>
           <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-emerald-600">8+</div>
-              <div className="text-sm text-muted-foreground">Educational Articles</div>
+              <div className="text-3xl font-bold text-emerald-600">{BLOG_POSTS.length}</div>
+              <div className="text-sm text-muted-foreground">Free Articles</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-emerald-600">200+</div>
-              <div className="text-sm text-muted-foreground">Projects Completed</div>
+              <div className="text-3xl font-bold text-emerald-600">1,500+</div>
+              <div className="text-sm text-muted-foreground">Backyards Built</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-emerald-600">15+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-3xl font-bold text-emerald-600">{GUIDES.filter((g) => g.cover).length}</div>
+              <div className="text-sm text-muted-foreground">Project Guides</div>
             </div>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-2xl font-bold">Explore by Project Type</h2>
+        <h2 className="text-2xl font-bold">Learn by Project Type</h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CATEGORIES.map((c) => (
             <Link
@@ -108,10 +111,29 @@ export default function Home() {
         </div>
       </section>
 
+      <BookPromo />
+
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold">The Fix My Old Guides</h2>
+          <Link href="/guides" className="text-sm font-semibold text-emerald-600 hover:underline">
+            All guides →
+          </Link>
+        </div>
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          Short, practical PDFs, one project each: real costs, layouts, permits and a checklist.
+        </p>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {GUIDES.map((g) => (
+            <GuideCard key={g.number} guide={g} />
+          ))}
+        </div>
+      </section>
+
       <section className="border-t border-border bg-muted/40">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Latest From the Blog</h2>
+            <h2 className="text-2xl font-bold">Latest Articles</h2>
             <Link href="/blog" className="text-sm font-semibold text-emerald-600 hover:underline">
               View all articles →
             </Link>
@@ -121,6 +143,20 @@ export default function Home() {
             matching each product to its best application — pavers, decks, patio covers, BBQ
             islands, and pool remodels.
           </p>
+          <ul className="mt-8 grid gap-4 md:grid-cols-2">
+            {BLOG_POSTS.slice(0, 4).map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="block h-full rounded-xl border border-border bg-background p-5 transition-shadow hover:shadow-md"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">{p.category}</p>
+                  <h3 className="mt-1 font-semibold">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.excerpt}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>
