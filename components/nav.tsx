@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE, NAV_LINKS } from "@/lib/site-data";
+import { BOOK, NAV_LINKS } from "@/lib/site-data";
 
 export default function Nav() {
   return (
@@ -20,10 +20,10 @@ export default function Nav() {
           ))}
         </nav>
         <a
-          href={SITE.phoneHref}
-          className="rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+          href={BOOK.url}
+          className="rounded-md bg-orange-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-700"
         >
-          {SITE.phone}
+          Get the Book
         </a>
       </div>
     </header>

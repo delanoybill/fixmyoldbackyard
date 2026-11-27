@@ -4,8 +4,8 @@ import { BLOG_POSTS } from "@/lib/blog-data";
 export default function BlogIndex() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
-      <p className="text-sm font-semibold uppercase tracking-wide text-emerald-600">Blog</p>
-      <h1 className="mt-2 text-4xl font-bold tracking-tight">Materials, Installation & Design Guides</h1>
+      <p className="text-sm font-semibold uppercase tracking-wide text-emerald-600">Articles</p>
+      <h1 className="mt-2 text-4xl font-bold tracking-tight">Free Articles: Materials, Installation & Design</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
         Practical, no-fluff guides to help you choose the right materials, understand the
         installation process, and match each product to its best use — written alongside the

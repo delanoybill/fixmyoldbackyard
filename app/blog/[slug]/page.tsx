@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOG_POSTS } from "@/lib/blog-data";
-import { SITE } from "@/lib/site-data";
+import { BookPromo } from "@/components/book-promo";
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -31,10 +31,21 @@ export default async function BlogPostPage({
         ))}
       </div>
       <div className="mt-12 rounded-xl border border-border bg-muted/40 p-6">
-        <h3 className="font-semibold">Ready to start your project?</h3>
+        <h3 className="font-semibold">Planning this project?</h3>
         <p className="mt-2 text-sm text-muted-foreground">
-          Call {SITE.phone} or email {SITE.email} for a free quote.
+          Go deeper with a{" "}
+          <Link href="/guides" className="font-semibold text-emerald-600 hover:underline">
+            Fix My Old guide
+          </Link>
+          , or see your layout before you build with a{" "}
+          <Link href="/3d-design" className="font-semibold text-emerald-600 hover:underline">
+            $125 3-D design
+          </Link>
+          .
         </p>
+      </div>
+      <div className="mt-8">
+        <BookPromo compact />
       </div>
     </main>
   );
