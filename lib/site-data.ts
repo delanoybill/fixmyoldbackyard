@@ -54,7 +54,8 @@ export const GUIDES: Guide[] = [
     subtitle: "Planning, Appliances & Building It Right",
     cover: "/images/guide-outdoor-kitchen.jpg",
     pages: "23 pages",
-    price: "$14.95",
+    price: "$12.95",
+    buyUrl: "https://payhip.com/b/op25v",
     topics: ["Costs", "Layout", "Appliances", "Permits", "Checklist"],
   },
   {
